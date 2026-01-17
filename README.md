@@ -27,5 +27,4 @@ The project consists of three parts:
 ### Protocol
 - All communication is defined in `main_proto.proto`
 - Multiple error codes for invalid requests
-cmake --build out/build
 
