@@ -1,0 +1,70 @@
+syntax = "proto2";
+package main_proto;
+
+enum Task{
+	TASK_ARITH = 0;
+	TASK_STRING = 1;
+}
+
+enum ArithmeticTask{
+	AR_SUM = 0;
+	AR_MULTIPLY = 1;
+	AR_AVERAGE = 2;
+}
+
+enum StringTask{
+	STR_UPPER = 0;
+	STR_REVERSE = 1;
+}
+
+enum ErrorCode{
+	ERR_NONE = 0;
+	ERR_BAD_TASK = 1;
+	ERR_UNSUPPORTED = 2;
+	ERR_INTERNAL = 3;
+}
+
+message TaskRequest{
+	optional int32 id = 1;
+	optional Task type = 2;
+	optional int32 version = 3 [default = 1];
+	oneof ar_str{
+		ArithmeticJob arithmetic = 10;
+		StringJob string = 20;
+	}
+}
+
+message ArithmeticJob{
+	optional ArithmeticTask operation = 1;
+	repeated sint32 numbers = 2;
+}
+
+message StringJob{
+	optional StringTask operation = 1;
+	optional string input = 2;
+}
+
+message TaskResponse{
+	optional uint32 id = 1;
+	optional uint32 version = 2 [default = 1];
+	oneof result{
+		ArithmeticResult arith_result = 11;
+		StringResult str_result = 12;
+		Error error = 20;
+	}
+}
+
+message ArithmeticResult{
+	optional sint64 sum = 1;
+	optional double average = 2;
+	optional sint64 multiply = 3;
+}
+
+message StringResult{
+	optional string output = 1;
+}
+
+message Error{
+	optional ErrorCode code = 1;
+	optional string message = 2;
+}

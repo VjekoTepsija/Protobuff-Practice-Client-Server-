@@ -1,0 +1,16 @@
+# Visual Studio
+.vs/
+
+# Build output
+out/
+build/
+
+# Executables
+*.exe
+
+# Protobuf runtime files
+request.bin
+response.bin
+
+# OS junk
+Thumbs.db
