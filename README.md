@@ -1,5 +1,7 @@
 # Protobuff-Practice-Client-Server-
 Simple protobuff project which I used to play around(and lose my nerves) with protobuff and google test(and CMake, that caused the most pain).
+Unfinished - Planned originally to have it work so that server and client run completely separate and at the same time and let the client make multiple tasks
+- The code is finished but not polished, did not yet have the time to go through this and improve it, add comments etc.
 # Proto2 C++ Client–Server Demo
 
 Aside C++ I used:
